@@ -17,18 +17,19 @@ void RunFIRFilter(double *FiltCoeff, int NumTaps, double *Signal, double *Filter
  int j, k;
  double y, Reg[256];  // This assumes <= 256 taps.
 
- for(j=0; j<NumTaps; j++)Reg[j] = 0.0; // Init the delay registers.
+ for(j=0; j<NumTaps; j++)
+    Reg[j] = 0.0; // Init the delay registers.
 
  for(j=0; j<NumSigPts; j++)
- {
-  // Shift the register values down and set Reg[0].
-  for(k=NumTaps; k>1; k--)Reg[k-1] = Reg[k-2];
-  Reg[0] = Signal[j];
+     {
+        // Shift the register values down and set Reg[0].
+     for(k=NumTaps; k>1; k--)Reg[k-1] = Reg[k-2];
+        Reg[0] = Signal[j];
 
-  y = 0.0;
-  for(k=0; k<NumTaps; k++)y += FiltCoeff[k] * Reg[k];
-  FilteredSignal[j] = y;
- }
+      y = 0.0;
+      for(k=0; k<NumTaps; k++)y += FiltCoeff[k] * Reg[k];
+        FilteredSignal[j] = y;
+     }
 
 }
 
@@ -41,7 +42,8 @@ void RunFIRFilter(double *FirCoeff, int NumTaps, double *Signal, double *Filtere
   int j, k, n, Top = 0;
   double y, Reg[256];  // This assumes <= 256 taps.
 
-  for(j=0; j<NumTaps; j++)Reg[j] = 0.0;
+  for(j=0; j<NumTaps; j++)
+      Reg[j] = 0.0;
 
   for(j=0; j<NumSigPts; j++)
    {
