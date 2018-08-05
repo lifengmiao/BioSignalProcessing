@@ -125,11 +125,11 @@ x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.33, random
 #        y_train = np.concatenate((y_train, y_train_new))
 
 # Create model
-n_steps = 300
-n_inputs = 1
+n_steps = 300 #timesteps for recurrent
+n_inputs = 1  #data_dim
 n_class = 3
 
-## RNN model
+## RNN model https://keras.io/getting-started/sequential-model-guide/#examples  check for "Stacked LSTM for sequence classification"
 #model = Sequential()
 #model.add(Dense(32, activation = 'relu', input_shape=(n_steps, n_inputs))) #n_batch*n_step*n_input batch size not in input_shape
 #model.add(LSTM(32, return_sequences=True)) #output [batch_size, timesteps, units], return full output sequence (128 time step)
